@@ -1,8 +1,14 @@
-print("Sistema de agendamento")
-print("Bem vindo ao agendamento da Dra. Giovana de Moraes")
+from abrir_agenda import abre_agenda_do_dia
+import selenium
 
-nome = input("Digite o nome completo do(a) paciente: ")
-nascimento = input("Digite a data de nascimento do(a) paciente (xx/xx/xx): ")
-convenio = input("Digite o convênio do(a) paciente: ")
-email = input("Digite um e-mail para contato: ")
+print("Sistema de confirmação de consulta")
 
+for linha in abre_agenda_do_dia("agenda_25_01_2021.csv"):
+    for hora in linha.keys():
+        horario_agendado = hora
+    for agendado in linha:
+        paciente = linha[agendado]
+        nome_paciente = paciente['nome']
+        tel_paciente = paciente['telefone']
+
+print(tel_paciente)
